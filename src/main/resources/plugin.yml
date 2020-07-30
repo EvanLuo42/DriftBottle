@@ -1,0 +1,20 @@
+name: DriftBottle
+version: ${project.version}
+main: com.github.evanluo42.DriftBottle
+api-version: 1.15
+commands:
+  db:
+    description: This is a demo command.
+    usage: /<command> [player]
+    permission: <plugin name>.basic
+    permission-message: You don't have <permission>
+  throw:
+    description: For throwing bottle
+    usage: /db throw <content>
+    permission: <plugin name>.basic
+    permission-message: You don't have <permission>
+  receive:
+    description: For receiving bottle
+    usage: /db receive
+    permission: <plugin name>.basic
+    permission-message: You don't have <permission>
