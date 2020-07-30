@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public final class DriftBottle extends JavaPlugin {
     public static ArrayList<Object> bottles = new ArrayList<>();
-    private File file = new File(getDataFolder()+"bottles.bin");
+    private File file = new File(getDataFolder()+File.separator+"bottle.bin");
     @Override
     public void onEnable() {
         getLogger().info("[DriftBottle]The plugin has been loaded!");
@@ -26,8 +26,6 @@ public final class DriftBottle extends JavaPlugin {
             e.printStackTrace();
         }
         this.getCommand("db").setExecutor(new CommandDriftBottle(this));
-        this.getCommand("throw").setExecutor(new CommandThrow(this));
-        this.getCommand("receive").setExecutor(new CommandReceive(this));
     }
 
     @Override

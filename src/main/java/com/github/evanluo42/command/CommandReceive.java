@@ -5,6 +5,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import java.util.Collections;
+import java.util.Random;
+
 import static com.github.evanluo42.DriftBottle.bottles;
 
 public class CommandReceive implements CommandExecutor {
@@ -15,11 +18,15 @@ public class CommandReceive implements CommandExecutor {
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(command.getName().equalsIgnoreCase("receive")){
-            bottles.add(args[1]);
-            sender.sendMessage("漂流瓶已投掷成功!");
+        Collections.shuffle(bottles);
+        Random r = new Random(1000);
+        int index = r.nextInt(bottles.size());
+        if(bottles.contains(index)){
+            sender.sendMessage("漂流瓶:"+bottles.get(index));
+            return true;
+        }else{
+            sender.sendMessage("没有漂流瓶哦!");
             return true;
         }
-        return false;
     }
 }

@@ -18,18 +18,12 @@ public class CommandThrow implements CommandExecutor {
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(args[0].equalsIgnoreCase("throw")){
-            Collections.shuffle(bottles);
-            Random r = new Random(1000);
-            int index = r.nextInt(bottles.size());
-            if(bottles.contains(index)){
-                sender.sendMessage("漂流瓶:"+bottles.get(index));
-                return true;
-            }else{
-                sender.sendMessage("没有漂流瓶哦!");
-                return true;
-            }
+        if(args[1]!=null){
+            bottles.add(args[1]);
+            sender.sendMessage("漂流瓶已投掷成功!");
+            return true;
+        }else{
+            return false;
         }
-        return false;
     }
 }
