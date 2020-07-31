@@ -13,29 +13,21 @@ public final class DriftBottle extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("The plugin has been loaded!");
-        if(getDataFolder().exists()){
-            try{
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-                bottles = APIFile.load(file.toString());
-            }catch(Exception e) {
-                e.printStackTrace();
-            }
-        }else{
+        if(!getDataFolder().exists()){
             getDataFolder().mkdir();
-            try{
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-                bottles = APIFile.load(file.toString());
-            }catch(Exception e) {
-                e.printStackTrace();
-            }
         }
-
+        getDataFolder().mkdir();
+        try{
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            bottles = APIFile.load(file.toString());
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
         this.getCommand("db").setExecutor(new CommandDriftBottle(this));
     }
+
 
     @Override
     public void onDisable() {
