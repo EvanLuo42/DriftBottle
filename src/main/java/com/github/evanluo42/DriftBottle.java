@@ -16,7 +16,6 @@ public final class DriftBottle extends JavaPlugin {
         if(!getDataFolder().exists()){
             getDataFolder().mkdir();
         }
-        getDataFolder().mkdir();
         try{
             if (!file.exists()) {
                 file.createNewFile();
