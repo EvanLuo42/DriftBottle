@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+
 public class CommandDriftBottle implements CommandExecutor {
     private final DriftBottle plugin;
 
@@ -22,6 +23,9 @@ public class CommandDriftBottle implements CommandExecutor {
             }else if(args[0].equalsIgnoreCase("receive")){
                 CommandReceive commandreceive = new CommandReceive(plugin);
                 commandreceive.onCommand(sender,command,label,args);
+                return true;
+            }else if(command.getName().equalsIgnoreCase("version")){
+                sender.sendMessage("Version:1.0.0");
                 return true;
             }
         }

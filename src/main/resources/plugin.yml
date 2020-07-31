@@ -4,7 +4,7 @@ main: com.github.evanluo42.DriftBottle
 api-version: 1.15
 commands:
   db:
-    description: This is a demo command.
-    usage: /<command> [player]
+    description: DriftBottle's main command.
+    usage: /db <throw/receive> [content]
     permission: <plugin name>.basic
     permission-message: You don't have <permission>
